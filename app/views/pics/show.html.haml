@@ -1,5 +1,8 @@
--#13--- going to find that instac eof the pic. can use @pic because i defind the instance variable in -#'find' private meth in the controller
+-#13--- going to find that instance of the pic. can use @pic because i defind the instance variable in -#'find' private meth in the controller
 %h1= @pic.title
 %p= @pic.description
 
 = link_to "Back", root_path
+-# path came from the rails routes created when the edit method was created in the controller (run -#rails routes for more info)
+= link_to "Edit", edit_pic_path
+= link_to "Delete", pic_path, method: :delete, data: { confirm: "Are you sure?" }
