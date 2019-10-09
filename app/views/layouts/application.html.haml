@@ -9,8 +9,28 @@
 
 -# 11 - add flash messages
 %body  
-  -flash.each do |name, msg| 
-    -# this is bootsrap
-    =content_tag :div, msg, class: "alert alert-info"
+  -# navigation formatting
+  -#inverse essentially changes the navbar to a black panel (bootstrap styling)
+  %nav.navbar.navbar-inverse
+    .container
+      .navbar-brand= link_to "Instagram", root_path
 
-  = yield
+      -#conditional will remove sign in option for already signed in users. Also display setting options, post pic option and sign out option 
+      - if user_signed_in? 
+        %ul.nav.navbar-nav.navbar-left 
+          %li= link_to "Gram It!", new_pic_path
+          %li= link_to "Settings", edit_user_registration_path  
+          -#paths come from devise - rails routes. method comes from their HTTP verbs
+          %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+
+      - else 
+        %ul.nav.navbar-nav.navbar-left
+          %li= link_to "Join", new_user_registration_path 
+          %li= link_to "Log In", new_user_session_path
+
+  .container
+    -flash.each do |name, msg| 
+      -# this is bootsrap
+      =content_tag :div, msg, class: "alert alert-info"
+
+    = yield
