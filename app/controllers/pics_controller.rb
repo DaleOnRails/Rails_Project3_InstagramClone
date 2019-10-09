@@ -14,12 +14,13 @@ class PicsController < ApplicationController
 
   #2-new and create will correspond to new.html view file
   def new
-    @pic = Pic.new
+    # @pic = Pic.new this is a problem - it isnt specifying WHO created the picture - because i want to diplsay the user id who created the pic (in user.rb) i have to use the below line of code.
+    @pic = current_user.pics.build
   end
 
   #3-now i need to define the params in a private method. Once params are created in a priv meth i can re-use them and keep code #DRY
   def create
-    @pic = Pic.new(pic_params)
+    @pic = current_user.pics.build(pic_params)
 
     if @pic.save #9 - add rendering for error messages
       #feedback to user that post has been saved

@@ -1,6 +1,12 @@
 -#13--- going to find that instance of the pic. can use @pic because i defind the instance variable in -#'find' private meth in the controller
 %h1= @pic.title
 %p= @pic.description
+-#19--after associating a picture to a user id in the databse terminal (aka irb(main) i can now use this neat trick below which will auto list the user that created the picture! #REMEMBER THIS TRICK#)
+%p 
+Pic by 
+= @pic.user.email  
+
+%br
 
 = link_to "Back", root_path
 -# path came from the rails routes created when the edit method was created in the controller (run -#rails routes for more info)
