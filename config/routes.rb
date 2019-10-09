@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # 3
+  #generates crud routes
+  resources :pics
+  #sets index as homepage/root
+  root "pics#index"
 end
