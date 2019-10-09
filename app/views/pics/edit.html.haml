@@ -1,8 +1,9 @@
--#step 17:
-%h1 Update Your Picture! 
-
-= render 'form'
-
--# if user decides to cancel th update then take them back to the pic show view
-= link_to "Cancel", pic_path
+-#bootsstrap syntax: tells the app to use up the middle 8 columns and offset by 2 on each side
+#edit_page.col-md-8.col-md-offset-2
+    .row 
+        .panel.panel-default
+            .panel-heading 
+                %h1 Edit Pic  
+            .panel-body 
+                = render 'form' 
 
