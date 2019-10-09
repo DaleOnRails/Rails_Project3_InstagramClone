@@ -1,0 +1,16 @@
+!!! 5 
+-# 10 - set skeleton formatting in application view file
+%html  
+%head  
+  %title Instagram
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+  = csrf_meta_tags
+
+-# 11 - add flash messages
+%body  
+  -flash.each do |name, msg| 
+    -# this is bootsrap
+    =content_tag :div, msg, class: "alert alert-info"
+
+  = yield
