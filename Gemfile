@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 #custom gems added by developer(dale-paulsen)
 gem 'haml', '~> 5.1', '>= 5.1.2'
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.2.0.2'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'devise'
 
 # Reduces boot times through caching; required in config/boot.rb
