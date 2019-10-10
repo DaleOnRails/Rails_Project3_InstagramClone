@@ -1,0 +1,69 @@
+<!-- formatting for the user settings page -->
+<!-- NOTE: all 'form' classes come from the devise gem's homepage
+NOTE: all the 'btn' classes are bootsrap styling from our bootstrap gem which allows the use of bootstrap -->
+<div class="col-md-8 col-md-offset-2">
+  <div class="row"> 
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2>Edit <%= resource_name.to_s.humanize %></h2>
+        </div>
+
+        <div class="panel-body">
+
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-group">
+            <%= f.label :email %>
+              <%= f.email_field :email, required: true, autofocus: true, class: "form-control" %>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password %>
+              <%= f.password_field :password,
+                          hint: "leave it blank if you don't want to change it",
+                          required: false, class: "form-control",
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confrimation %>
+              <%= f.password_field :password_confirmation,
+                          required: false, class: "form-control",
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :current_password %>
+              <%= f.password_field :current_password,
+                          hint: "we need your current password to confirm your changes",
+                          required: true, class: "form-control",
+                          input_html: { autocomplete: "current-password" } %>
+            </div>
+
+            <div class="form-group">
+              <%= f.button :submit, "Update", class: "btn btn-info" %>
+            </div>
+          <% end %>
+          </div>
+
+        <div class="panel-footer">
+
+          <h3>Cancel my account</h3>
+
+          <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
+
+          <%= link_to "Back", :back, class: "btn btn-default" %>
+          <!-- closing div for footer panel -->
+        </div>
+          <!-- closing div for panel-default -->
+      </div>
+        <!-- closing div for 'row' -->
+    </div> 
+    <!-- closing div for col offset -->
+</div> 
+

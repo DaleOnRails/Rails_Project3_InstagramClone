@@ -1,0 +1,12 @@
+-#bootsstrap syntax: tells the app to use up the middle 8 columns and offset by 2 on each side
+#edit_page.col-md-8.col-md-offset-2
+    .row 
+        .panel.panel-default
+            .panel-heading 
+                %h1 Edit Pic  
+            .panel-body 
+                .current_image 
+                    %strong.center Right Now 
+                    = image_tag @pic.image.url(:medium)
+                = render 'form' 
+

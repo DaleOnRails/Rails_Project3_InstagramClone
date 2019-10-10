@@ -1,0 +1,24 @@
+-#6. create a form for user uploading the picture and params(title and description)
+= simple_form_for @pic, html: { multipart: true } do |f|
+    -# 8 incase of errors then list them to the user
+    = if @pic.errors.any?
+        #errors 
+            %h2 
+            = pluralize(@pic.errors.count, "error")
+            prevented this Pic' from saving  
+            %ul 
+                - @pic.errors.full_messages.each do |msg|  
+                    -# equals sign is haml syntax fro rrendering similar to erb syntax
+                    %li= msg
+
+    .form-group
+        = f.input :image, input_html: { class: 'form-control' }
+    -# 7 form for title
+    .form-group
+        = f.input :title, input_html: { class: 'form-control' }
+    -# form for description
+    .form-group
+        = f.input :description, input_html: { class: 'form-control' }
+
+    -# -3 these button options are/come from bootsrap styling (gem)
+    = f.button :submit, class: "btn btn-info"

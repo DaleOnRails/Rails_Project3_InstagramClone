@@ -1,0 +1,12 @@
+-# this index view corresponds to the index method in pics_controller
+-# 2 - why use @pics? because i want the index page to show ALL the pictures. 
+-# #this relates to thee masonry rails gem which i have added
+-#'.col-md-12' says to make pics take up all 12 columns (like the real insta)
+.col-md-12
+    #pics.transitions-enabled
+        - @pics.each do |pic|
+            .box.panel.panel-default 
+                = link_to (image_tag pic.image.url), pic
+                %h2= link_to pic.title, pic  
+
+
